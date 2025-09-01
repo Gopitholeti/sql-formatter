@@ -43,9 +43,9 @@
                         <div>
                             <label for="keyword-case-select" class="block text-sm font-medium text-gray-700">Keyword Case</label>
                             <select id="keyword-case-select" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
-                                <option value="preserve" selected>Preserve</option>
-                                <option value="upper">Uppercase</option>
+                                <option value="upper" selected>Uppercase</option>
                                 <option value="lower">Lowercase</option>
+                                <option value="preserve">Preserve</option>
                             </select>
                         </div>
                         <div>
@@ -136,9 +136,7 @@
                     });
 
                     // Then, manually adjust the formatted string to use leading commas
-                    // This regex finds a comma followed by a newline and any amount of whitespace.
-                    // It replaces it by putting the newline and whitespace first, then the comma.
-                    const leadingCommaSql = formattedSql.replace(/,\n\s*/g, '\n, ');
+                    const leadingCommaSql = formattedSql.replace(/,\n\s*/g, ',\n' + indent);
 
                     outputSqlEl.value = leadingCommaSql;
 
